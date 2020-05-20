@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float bulletSpeed = .00000001f;
+    [SerializeField] float bulletSpeed = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +15,9 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.right * bulletSpeed *Time.deltaTime);
+        if (transform.position.x > 9f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
