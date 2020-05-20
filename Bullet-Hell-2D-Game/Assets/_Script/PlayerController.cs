@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform bulletSpawn;
     private float xBound = 8.5f;
     private float yBound = 4.6f;
+
+    private float delay = 0.1f;
+    private float nextTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +61,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C))
         {
-            Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+            if(Time.time > nextTime)
+            {
+                Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+                nextTime = Time.time + delay;
+            }
         }
     }
 } 
