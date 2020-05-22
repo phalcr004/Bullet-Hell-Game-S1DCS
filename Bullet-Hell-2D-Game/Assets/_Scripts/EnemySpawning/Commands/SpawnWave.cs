@@ -16,33 +16,25 @@ public class SpawnWave : Command {
     private int[] spawnAtPositions;
 
     // Time to wait until before starting the next command
-    private float endTime;
+    private float startTime;
 
-    private bool isWaveSpawned = false;
     private bool isFinished = false;
 
     // The contructor below will save the parameters for the command upon initializing it
-    public SpawnWave(GameObject[] spawnPositions, GameObject enemyPrefab, int[] spawnAtPositions, float delay) {
+    public SpawnWave(GameObject[] spawnPositions, GameObject enemyPrefab, int[] spawnAtPositions, float startTime) {
         this.spawnPositions = spawnPositions;
         this.enemyPrefab = enemyPrefab;
         this.spawnAtPositions = spawnAtPositions;
-        endTime = Time.time + delay;
+        this.startTime = startTime;
     }
 
     public void RunCommand() {
-        SpawnEnemies();
-
-        if (Time.time > endTime) {
-            isFinished = true;
+        if (Time.time > startTime) {
+            SpawnEnemies();
         }
     }
 
     private void SpawnEnemies() {
-        // Check if enemies need to be spawned yet
-        if(isWaveSpawned) {
-            return;
-        }
-
         try {
             for (int i = 0; i < spawnPositions.Length; i++) {
                 // Check if an enemy should spawn at this position
@@ -51,7 +43,7 @@ public class SpawnWave : Command {
                     UnityEngine.Object.Instantiate(enemyPrefab, spawnPositions[i].transform.position, enemyPrefab.transform.rotation);
                 }
             }
-            isWaveSpawned = true;
+            isFinished = true;
         }
         catch (IndexOutOfRangeException e) {
             // If an array is less than the required length, catch the error and keep the game running
