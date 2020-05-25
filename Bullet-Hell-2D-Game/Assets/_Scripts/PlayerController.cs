@@ -9,10 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float slowSpeed = 2.5f;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawn;
+    [SerializeField] Transform bulletSpawn2;
     private float xBound = 8.5f;
     private float yBound = 4.6f;
 
-    private float delay = 0.1f;
+    public float delay = 0.06f;
     private float nextTime;
 
     // Start is called before the first frame update
@@ -59,11 +60,12 @@ public class PlayerController : MonoBehaviour
     }
     private void FireWeapon()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.J))
         {
             if(Time.time > nextTime)
             {
                 Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+                Instantiate(bullet, bulletSpawn2.position, bulletSpawn.rotation);
                 nextTime = Time.time + delay;
             }
         }
