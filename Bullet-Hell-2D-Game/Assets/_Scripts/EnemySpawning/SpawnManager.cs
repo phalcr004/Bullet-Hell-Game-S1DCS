@@ -13,14 +13,9 @@ public class SpawnManager : MonoBehaviour {
 
     void Start() {
         // Add all the commands for this level below
-        //commands.Enqueue(new DelayNextCommand(Time.time, 1f));
-        //AddInverseTriangleFormation(testEnemy1, 1f, 0.5f);
-        //AddInverseTriangleFormation(testEnemy2, 3f, 0.5f);
 
-        commands.Enqueue(new SpawnWave(spawnPositions, testEnemy1, new int[] { 0, 1, 0, 1, 0, 1, 0 }, 1f));
-        commands.Enqueue(new SpawnWave(spawnPositions, testEnemy1, new int[] { 0, 1, 0, 1, 0, 1, 0 }, 1.5f));
-        commands.Enqueue(new SpawnWave(spawnPositions, testEnemy1, new int[] { 0, 1, 0, 1, 0, 1, 0 }, 2f));
-        commands.Enqueue(new SpawnWave(spawnPositions, testEnemy1, new int[] { 0, 1, 0, 1, 0, 1, 0 }, 2.5f));
+        //commands.Enqueue(new SpawnWaveStaggered(spawnPositions, testEnemy1, new int[,] { { 1, 0, 1, 0, 1, 0, 1 }, { 0, 1, 0, 1, 0, 1, 0 } }, 3f, 10f));
+
     }
 
     public void AddTriangleFormation(GameObject enemyPrefab, float startTime, float delay) {
