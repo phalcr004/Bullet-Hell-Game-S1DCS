@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed;
-    [SerializeField] float fastSpeed =5.5f;
-    [SerializeField] float slowSpeed = 2.5f;
+    public static int playerLives;
+
+    private float speed;
+    private float fastSpeed =5.5f;
+    private float slowSpeed = 2.5f;
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] Transform bulletSpawn2;
+
     private float xBound = 8.5f;
     private float yBound = 4.6f;
 
