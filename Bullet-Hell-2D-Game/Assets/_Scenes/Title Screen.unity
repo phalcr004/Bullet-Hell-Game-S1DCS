@@ -127,6 +127,12 @@ AudioListener:
     type: 3}
   m_PrefabInstance: {fileID: 926904962508320730}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1293566107 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 926904962476921424, guid: 4e3fc8923f4358e459118ad25ff0f399,
+    type: 3}
+  m_PrefabInstance: {fileID: 926904962508320730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &926904962508320730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -381,6 +387,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290270814, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 35732871}
+    - target: {fileID: 477059760, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 35732871}
+    - target: {fileID: 871142540, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 1293566107}
+    - target: {fileID: 1386314665, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 1293566107}
+    - target: {fileID: 1496230346, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 35732871}
+    - target: {fileID: 1905151917, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 1293566107}
     - target: {fileID: 8902002921529289251, guid: 5fc89733d48d78f4ea09e813d052653d,
         type: 3}
       propertyPath: m_LocalPosition.x

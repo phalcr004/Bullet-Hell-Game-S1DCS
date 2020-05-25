@@ -13,18 +13,21 @@ public class TitleButtons : MonoBehaviour
     public Sprite mute;
     Image muteComponent;
 
+
     private bool helpScreenActive;
+    private bool helpScreen2Active;
     private bool startScreenActive;
     private bool difficultyScreenActive;
     [SerializeField] GameObject startScreen;
     [SerializeField] GameObject startDifficultyButtons;
     [SerializeField] GameObject helpScreen;
+    [SerializeField] GameObject helpScreen2;
     [SerializeField] GameObject title;
 
     // Start is called before the first frame update
     void Start()
     {
-        //set Play, Help, Exit buttons on and Easy, Medium, Hard buttons off
+     //set Play, Help, Exit buttons on and Easy, Medium, Hard buttons off
      startScreenActive = true;
      difficultyScreenActive = false;
      muteComponent = GetComponent<Image>();
@@ -74,16 +77,6 @@ public class TitleButtons : MonoBehaviour
         startDifficultyButtons.SetActive(true);
         difficultyScreenActive = true;
     }
-    public void ClickBack()
-    {
-        startScreenActive = true;
-        startScreen.SetActive(true);
-        startDifficultyButtons.SetActive(false);
-        difficultyScreenActive = false;
-        helpScreenActive = false;
-        helpScreen.SetActive (false);
-        title.SetActive(true);
-    }
     public void ClickHelp()
     {
         startScreenActive = false;
@@ -91,5 +84,36 @@ public class TitleButtons : MonoBehaviour
         helpScreen.SetActive(true);
         helpScreenActive = true;
         title.SetActive(false);
+    }
+    public void ClickBack()
+    {
+        startScreenActive = true;
+        startScreen.SetActive(true);
+        startDifficultyButtons.SetActive(false);
+        difficultyScreenActive = false;
+        helpScreenActive = false;
+        helpScreen.SetActive(false);
+        title.SetActive(true);
+        helpScreen2Active = false;
+        helpScreen2.SetActive(false);
+
+    }
+    public void ClickMore()
+    {
+        helpScreenActive = false;
+        helpScreen.SetActive(false);
+        helpScreen2Active = true;
+        helpScreen2.SetActive(true);
+
+    }
+    public void ClickRightArrow()
+    {
+        helpScreenActive = true;
+        helpScreen.SetActive(true);
+        helpScreen2Active = false;
+        helpScreen2.SetActive(false);
+        helpScreen.SetActive(true);
+        helpScreenActive = true;
+
     }
 }
