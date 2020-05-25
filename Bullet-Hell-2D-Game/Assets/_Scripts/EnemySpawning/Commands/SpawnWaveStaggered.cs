@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnWaveStaggered : Command {
+public class SpawnWaveStaggered : ICommand {
     // Array with the spawn locations for enemies
     private GameObject[] spawnPositions;
 
@@ -23,7 +23,8 @@ public class SpawnWaveStaggered : Command {
     private float waveDelay;
     private float nextSpawnTime;
 
-    private int index;
+    // The column index needs to be saved between method calls
+    private int columnIndex = 0;
 
     private bool isFinished = false;
 
@@ -34,28 +35,45 @@ public class SpawnWaveStaggered : Command {
         this.spawnAtPositions = spawnAtPositions;
         this.startTime = startTime;
         this.waveDelay = waveDelay;
+        this.nextSpawnTime = Time.time + waveDelay;
     }
 
     public void RunCommand() {
-        if (Time.time > startTime) {
+        // Wait until the time specified before spawning enemies
+        if(Time.time > startTime) {
             SpawnEnemies();
         }
     }
 
     private void SpawnEnemies() {
-        Debug.Log("Code hasn't failed yet");
-        isFinished = true;
+        // Return if the next wave isn't ready to spawn
+        if(Time.time < nextSpawnTime) {
+            return;
+        }
+
+        // Try catch ensures that the program will continue to run even if the command is input incorrectly
         try { 
-            
+            // For each 
+            for(int rowIndex = 0; rowIndex < spawnPositions.Length; rowIndex++) {
+                if(spawnAtPositions[columnIndex, rowIndex] == 1) {
+                    UnityEngine.Object.Instantiate(enemyPrefab, spawnPositions[rowIndex].transform.position, spawnPositions[rowIndex].transform.rotation);
+                }
+            }
+            // Increment the index and set the time for the next wave to spawn
+            columnIndex++;
+            nextSpawnTime = Time.time + waveDelay;
         }
         catch (IndexOutOfRangeException e) {
             // If an array is less than the required length, catch the error and keep the game running
-            Debug.LogError("Index out of bounds of array. Continuing game.");
+            Debug.LogWarning("Index out of bounds of array. Continuing game.");
         }
-        
     }
 
     public bool CheckIsFinished() {
+        // If the index is greater than or equal to the length, there should be no more enemies to spawn (arrays start at 0)
+        if(columnIndex >= spawnAtPositions.GetLength(0)) {
+            isFinished = true;
+        }
         return isFinished;
     }
 }

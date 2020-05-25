@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnWave : Command {
+public class SpawnWave : ICommand {
     // Array with the spawn locations for enemies
     private GameObject[] spawnPositions;
 

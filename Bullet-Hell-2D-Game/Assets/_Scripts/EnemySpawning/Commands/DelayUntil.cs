@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DelayUntil : Command {
+public class DelayUntil : ICommand {
     // Keep track of when the command should end
     private float endTime;
 
