@@ -13,6 +13,7 @@ public class TitleButtons : MonoBehaviour
     public Sprite mute;
     Image muteComponent;
 
+
     private bool helpScreenActive;
     private bool startScreenActive;
     private bool difficultyScreenActive;
