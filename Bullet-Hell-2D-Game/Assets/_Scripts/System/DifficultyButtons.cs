@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DifficultyButtons : MonoBehaviour
 {
@@ -18,21 +19,31 @@ public class DifficultyButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void SetDifficultyEasy()
     {
+        PlayerController.playerLives = 3;
         Debug.Log("Difficulty Set to Easy");
         cameraAudio.PlayOneShot(easySelectSound, 1.0f);
+        Invoke("StartGame", 1);
     }
     public void SetDifficultyMeduim()
     {
+        PlayerController.playerLives = 2;
         Debug.Log("Difficulty Set to Medium");
         cameraAudio.PlayOneShot(mediumSelectSound, 1.0f);
+        Invoke("StartGame", 2);
     }
     public void SetDifficultyHard()
     {
+        PlayerController.playerLives = 1;
         Debug.Log("Difficulty Set to Hard");
         cameraAudio.PlayOneShot(hardSelectSound, 0.75f);
+        Invoke("StartGame", 2);
+    }
+    public void StartGame()
+    {
+            SceneManager.LoadScene(1);
     }
 }

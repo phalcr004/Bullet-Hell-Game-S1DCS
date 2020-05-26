@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         FireWeapon();
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Debug.Log("Extra Lives " + playerLives);
+        }
     }
     private void MovePlayer()
     {
