@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour {
         commands.Enqueue(new SpawnWaveStaggered(backSpawnPositions, testEnemy1, new int[,] { { 1, 1, 1, 1, 1, 1, 1 } }, 3f, 0f));
         commands.Enqueue(new SpawnWaveStaggered(topSpawnPositions, testEnemy1, new int[,] { { 1, 1, 1, 1, 1, 1, 1 } }, 4f, 0f));
         commands.Enqueue(new SpawnWaveStaggered(bottomSpawnPositions, testEnemy1, new int[,] { { 1, 1, 1, 1, 1, 1, 1 } }, 5f, 0f));
+
     }
 
     void Update() {

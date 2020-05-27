@@ -7,16 +7,29 @@ public class PlayerDataManager : MonoBehaviour {
     private string path;
     private string jsonString;
 
-    public static PlayerData playerData;
+    public PlayerData playerData;
     void Start() {
         path = Application.streamingAssetsPath + "/player-data.JSON";
         jsonString = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerData>(jsonString);
     }
 
-    public static void OverwriteJsonFile() {
+    public void OverwriteJsonFile() {
         JsonUtility.ToJson(playerData);
     }
+
+    public void UpdateHighScores(int newScore) {
+        int previousHighscore = newScore;
+
+        foreach(Highscores highscore in playerData.highscores) {
+            if(previousHighscore > highscore.score) { 
+                newScore = previousHighscore;
+                previousHighscore = highscore.score;
+                highscore.score = newScore;
+            }
+        }
+    } 
+
 }
 
 [System.Serializable]
