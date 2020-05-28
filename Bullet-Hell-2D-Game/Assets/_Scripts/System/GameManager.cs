@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            AudioListener.volume = .75f;
+            AudioListener.volume = .5f;
         }
     }
 
