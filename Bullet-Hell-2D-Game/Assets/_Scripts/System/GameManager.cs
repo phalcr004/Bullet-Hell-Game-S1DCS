@@ -15,35 +15,49 @@ public class GameManager : MonoBehaviour
     public bool activateBoss;
     public bool isBossActive;
 
+    public GameObject gameOverScreen;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {   //when game starts set these
         isBossActive = false;
         ChooseMusic();
         isGameActive = true;
-        if(TitleButtons.gameAudio == false)
+        //Turn audio on if not muted
+        if (TitleButtons.gameAudio == false)
         {
             AudioListener.volume = 0f;
         }
         else
         {
-            AudioListener.volume = .5f;
+            AudioListener.volume = .2f;
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   //check if boss is active or not
         if (activateBoss == true)
         {
             activateBoss = false;
             ActivateBoss();
         }
+        //Check if player has no more lives
+        if(PlayerController.playerLives < 0)
+        {
+            GameOver();
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            GameOver();
+        }
     }
     public void GameOver()
     {
+        Time.timeScale = 0f;
         isGameActive = false;
-        AudioListener.volume = 0.25f;
+        AudioListener.volume = 0.1f;
+        gameOverScreen.SetActive(true);
     }
     public void ChooseMusic()
     {

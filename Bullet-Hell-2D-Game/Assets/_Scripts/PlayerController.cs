@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerLives = 2;
     }
 
     // Update is called once per frame
@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         FireWeapon();
-        if (Input.GetKey(KeyCode.Q))
-        {
-            Debug.Log("Extra Lives " + playerLives);
-        }
     }
     private void MovePlayer()
     {

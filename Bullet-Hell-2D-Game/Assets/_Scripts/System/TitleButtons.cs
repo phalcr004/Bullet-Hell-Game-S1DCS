@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TitleButtons : MonoBehaviour
 {
@@ -27,10 +28,10 @@ public class TitleButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     //set Play, Help, Exit buttons on and Easy, Medium, Hard buttons off
-     startScreenActive = true;
-     difficultyScreenActive = false;
-     muteComponent = GetComponent<Image>();
+        //set Play, Help, Exit buttons on and Easy, Medium, Hard buttons off
+        startScreenActive = true;
+        difficultyScreenActive = false;
+        muteComponent = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -61,7 +62,7 @@ public class TitleButtons : MonoBehaviour
         if (gameAudio == true)
         {
             Debug.Log("Game Muted");
-           gameAudio = false;
+            gameAudio = false;
         }
         else
         {
@@ -116,4 +117,13 @@ public class TitleButtons : MonoBehaviour
         helpScreenActive = true;
 
     }
+    public void restartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void exitGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
+
