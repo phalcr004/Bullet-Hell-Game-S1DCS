@@ -7,7 +7,7 @@ public class PlayerDataManager : MonoBehaviour {
     private string path;
     private string jsonString;
 
-    public PlayerData playerData;
+    public static PlayerData playerData;
     void Start() {
         path = Application.streamingAssetsPath + "/player-data.JSON";
         jsonString = File.ReadAllText(path);
@@ -39,6 +39,5 @@ public class PlayerData {
 
 [System.Serializable]
 public class Highscores {
-    public int position;
     public int score;
 }

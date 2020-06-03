@@ -16,15 +16,15 @@ public class SpawnManager : MonoBehaviour {
 
     void Start() {
         // Add all the commands for this level below
-        commands.Enqueue(new SpawnWaveStaggered(backSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 } }, 3f, 0f));
-
-
+        commands.Enqueue(new SpawnWaveStaggered(backSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 3f, 0.5f));
+        commands.Enqueue(new SpawnWaveStaggered(topSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 5f, 0.5f));
+        commands.Enqueue(new SpawnWaveStaggered(bottomSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 7f, 0.5f));
     }
 
     void Update() {
         // Check if there are no commands left
         if(commands.Count == 0) {
-            // Turn off spawn managaer
+            //Turn off spawn managaer
             gameObject.SetActive(false);
             return;
         }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6170327921330154601}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.081, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8380207356646602857}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8380207356625507587}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.101, y: 0.6, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8380207356646602857}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8380207356646602859}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0020229816, y: 0.0040468946}
@@ -183,9 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2c430b02e07f47b14e588ccfa01ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.5
-  fastSpeed: 5.5
-  slowSpeed: 2.5
   bullet: {fileID: 3451443333119735917, guid: 5d1c160a781ab5c42b3c8cb4c0490e36, type: 3}
   bulletSpawn: {fileID: 8380207356625507586}
   bulletSpawn2: {fileID: 3790131502009216869}
