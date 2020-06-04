@@ -5,14 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static int playerLives;
-
+    public static int score;
     private float speed;
     private float fastSpeed =5.5f;
     private float slowSpeed = 2.5f;
 
+    public bool isPaused;
+    public bool isNotPaused;
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] Transform bulletSpawn2;
+
+    private AudioSource cameraAudio;
 
     private float xBound = 8.5f;
     private float yBound = 4.6f;
@@ -24,6 +29,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerLives = 2;
+        isNotPaused = false;
+        cameraAudio = GameObject.Find("GameManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +38,24 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         FireWeapon();
+        //Pause Script
+            if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isNotPaused)
+            {
+                isNotPaused = false;
+                Time.timeScale = 0;
+                cameraAudio.Pause();
+            }
+            if (!isNotPaused)
+            {
+                isNotPaused = true;
+                Time.timeScale = 1;
+                cameraAudio.UnPause();
+            }
+        }
+
+
     }
     private void MovePlayer()
     {
