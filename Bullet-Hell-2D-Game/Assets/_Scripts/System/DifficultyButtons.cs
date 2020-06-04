@@ -13,6 +13,7 @@ public class DifficultyButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         cameraAudio = GameObject.Find("Main Camera").GetComponent<AudioSource>();
     }
 
@@ -23,21 +24,21 @@ public class DifficultyButtons : MonoBehaviour
     }
     public void SetDifficultyEasy()
     {
-        PlayerController.playerLives = 3;
+        PlayerController.playerLives = 2;
         Debug.Log("Difficulty Set to Easy");
         cameraAudio.PlayOneShot(easySelectSound, 1.0f);
         Invoke("StartGame", 1);
     }
     public void SetDifficultyMeduim()
     {
-        PlayerController.playerLives = 2;
+        PlayerController.playerLives = 1;
         Debug.Log("Difficulty Set to Medium");
         cameraAudio.PlayOneShot(mediumSelectSound, 1.0f);
         Invoke("StartGame", 2);
     }
     public void SetDifficultyHard()
     {
-        PlayerController.playerLives = 1;
+        PlayerController.playerLives = 0;
         Debug.Log("Difficulty Set to Hard");
         cameraAudio.PlayOneShot(hardSelectSound, 0.75f);
         Invoke("StartGame", 2);

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class PlayerController : MonoBehaviour
 
     public bool isPaused;
     public bool isNotPaused;
+
+    public Image extraLife1;
+    public Image extraLife2;
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawn;
@@ -28,8 +33,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLives = 2;
-        isNotPaused = false;
+        Time.timeScale = 1;
+        isNotPaused = true;
         cameraAudio = GameObject.Find("GameManager").GetComponent<AudioSource>();
     }
 
@@ -39,23 +44,41 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         FireWeapon();
         //Pause Script
-            if (Input.GetKeyDown(KeyCode.Escape))
+        /*        if (Input.GetKeyDown(KeyCode.Escape && ))
+            {
+                if (isNotPaused)
+                {
+                    isNotPaused = false;
+                    Time.timeScale = 1;
+                    cameraAudio.Pause();
+                }
+                else
+                {
+                    isNotPaused = true;
+                    Time.timeScale = 0;
+                    cameraAudio.UnPause();
+                }
+            }*/
+        //Hud Display For Player Lives
+        switch (playerLives)
         {
-            if (isNotPaused)
-            {
-                isNotPaused = false;
-                Time.timeScale = 0;
-                cameraAudio.Pause();
-            }
-            if (!isNotPaused)
-            {
-                isNotPaused = true;
-                Time.timeScale = 1;
-                cameraAudio.UnPause();
-            }
+            case 2:
+                extraLife1.enabled = true;
+                extraLife1.enabled = true;
+                break;
+            case 1:
+                extraLife1.enabled = true;
+                extraLife2.enabled = false;
+                break;
+            case 0:
+                extraLife1.enabled = false; 
+                extraLife2.enabled = false;
+                break;
+            case -1:
+                extraLife1.enabled = false;
+                extraLife2.enabled = false;
+                break;
         }
-
-
     }
     private void MovePlayer()
     {
@@ -99,4 +122,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 } 

@@ -896,8 +896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9572fdb6c9ff1f42aba6d6b8703e05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    highscores: []
 --- !u!1 &1052074490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8319124536199161626, guid: 88621b3c46347c945be11261cef2f0c6,
@@ -1462,6 +1460,21 @@ PrefabInstance:
       propertyPath: delay
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: cameraAudio
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: extraLife1
+      value: 
+      objectReference: {fileID: 909674345}
+    - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: extraLife2
+      value: 
+      objectReference: {fileID: 288115635}
     - target: {fileID: 8380207356646602863, guid: 26f90f41a879bbc428d408b554bad414,
         type: 3}
       propertyPath: m_Name

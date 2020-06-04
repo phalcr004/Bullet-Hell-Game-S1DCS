@@ -566,6 +566,11 @@ PrefabInstance:
       propertyPath: cameraAudio
       value: 
       objectReference: {fileID: 35732871}
+    - target: {fileID: 8902002922427477155, guid: 5fc89733d48d78f4ea09e813d052653d,
+        type: 3}
+      propertyPath: m_Text
+      value: Bullet Hail
+      objectReference: {fileID: 0}
     - target: {fileID: 8902002922852644865, guid: 5fc89733d48d78f4ea09e813d052653d,
         type: 3}
       propertyPath: cameraAudio
