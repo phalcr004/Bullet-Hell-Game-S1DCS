@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float bulletSpeed = 15f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int bulletDamage = 10;
+    private float bulletSpeed = 15f;
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * bulletSpeed *Time.deltaTime);
@@ -19,5 +14,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.CompareTag("Player")) {
+            return;
+        }
+
+        collision.gameObject.GetComponent<EnemyHealth>().DealDamage(bulletDamage);
     }
 }

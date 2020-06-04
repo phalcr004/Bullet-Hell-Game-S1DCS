@@ -43,11 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dbe33dc73568f4ba96f3123f8ccbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testEnemy1: {fileID: 1294196359729516442, guid: 0b1ca2f333fc52844920a667b86f8033,
+  testEnemy1: {fileID: 65700864803546847, guid: a2ba0e3e84add3d429dc03af67aa96a3,
     type: 3}
-  testEnemy2: {fileID: 2385503668195589408, guid: 34629a12a16805648bf22b26358764a2,
-    type: 3}
-  spawnPositions:
+  topSpawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bottomSpawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  backSpawnPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
