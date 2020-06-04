@@ -7,15 +7,18 @@ public class AcceleratorEnemy : MonoBehaviour {
     private float speed = 1f;
     private float acceleration = 15f;
 
-    // Health of enemy
-    private float health = 5000f;
+    // boss 2000
+    // spinning 200
+    // fast 50
+
+
 
     // Track enemy state and adjust "AI" accordingly
     private enum EnemyStates { Spawning, Targetting, Charging }
     private EnemyStates enemyState;
     
     // Stop player from destroying enemy before it fully enters screen
-    private bool canTakeDamage;
+    public bool canTakeDamage;
     private float invincibilityDuration = 2f;
 
     // Timer to keep track of state changes
@@ -33,7 +36,7 @@ public class AcceleratorEnemy : MonoBehaviour {
     // Direction and distance variables
     private Vector2 directionToPlayer;
     private float distanceToPlayer;
-    private float minDistanceFromPlayer = 4f;
+    private float minDistanceFromPlayer = 5f;
 
     // Boundaries
     private float xBoundary = 15f;
