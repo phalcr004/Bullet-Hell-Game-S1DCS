@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static int startingLives;
     public static int playerLives;
     public static int score;
     private float speed;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerLives = startingLives;
         Time.timeScale = 1;
         isNotPaused = true;
         cameraAudio = GameObject.Find("GameManager").GetComponent<AudioSource>();

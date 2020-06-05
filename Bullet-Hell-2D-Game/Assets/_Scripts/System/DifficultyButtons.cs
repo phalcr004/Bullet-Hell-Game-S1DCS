@@ -24,21 +24,21 @@ public class DifficultyButtons : MonoBehaviour
     }
     public void SetDifficultyEasy()
     {
-        PlayerController.playerLives = 2;
+        PlayerController.startingLives = 2;
         Debug.Log("Difficulty Set to Easy");
         cameraAudio.PlayOneShot(easySelectSound, 1.0f);
         Invoke("StartGame", 1);
     }
     public void SetDifficultyMeduim()
     {
-        PlayerController.playerLives = 1;
+        PlayerController.startingLives = 1;
         Debug.Log("Difficulty Set to Medium");
         cameraAudio.PlayOneShot(mediumSelectSound, 1.0f);
         Invoke("StartGame", 2);
     }
     public void SetDifficultyHard()
     {
-        PlayerController.playerLives = 0;
+        PlayerController.startingLives = 0;
         Debug.Log("Difficulty Set to Hard");
         cameraAudio.PlayOneShot(hardSelectSound, 0.75f);
         Invoke("StartGame", 2);
