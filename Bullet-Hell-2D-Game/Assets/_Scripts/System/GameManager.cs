@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Text scoreText;
     public AudioClip[] music;
     private AudioClip selectedMusic;
-    [SerializeField] AudioSource cameraAudio;
+    public AudioSource cameraAudio;
     [SerializeField] AudioListener cameraVolume;
     public AudioClip bossMusic;
 
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+        scoreText.text = "" + PlayerController.score;
     }
     public void GameOver()
     {
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
     public void ChooseMusic()
     {
         int musicChoice = Random.Range(0, music.Length);
-        cameraAudio.clip = music[musicChoice];
+        cameraAudio.clip = music[musicChoice]; // here
         cameraAudio.Play();
     }
     public void ActivateBoss()

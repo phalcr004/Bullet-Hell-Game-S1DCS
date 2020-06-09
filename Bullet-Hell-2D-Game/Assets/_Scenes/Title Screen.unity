@@ -399,6 +399,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 275782788, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 290270814, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}
       propertyPath: cameraAudio
       value: 
@@ -566,10 +570,25 @@ PrefabInstance:
       propertyPath: cameraAudio
       value: 
       objectReference: {fileID: 35732871}
+    - target: {fileID: 8902002922427477153, guid: 5fc89733d48d78f4ea09e813d052653d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902002922427477155, guid: 5fc89733d48d78f4ea09e813d052653d,
+        type: 3}
+      propertyPath: m_Text
+      value: Bullet Hail
+      objectReference: {fileID: 0}
     - target: {fileID: 8902002922852644865, guid: 5fc89733d48d78f4ea09e813d052653d,
         type: 3}
       propertyPath: cameraAudio
       value: 
       objectReference: {fileID: 35732871}
+    - target: {fileID: 8902002923236284873, guid: 5fc89733d48d78f4ea09e813d052653d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc89733d48d78f4ea09e813d052653d, type: 3}

@@ -16,4 +16,8 @@ public class ScrollingCloud : MonoBehaviour {
             transform.position = new Vector2(-xBoundary, randomYPosition);
         }
     }
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
 }

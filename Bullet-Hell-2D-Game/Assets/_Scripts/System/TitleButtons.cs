@@ -119,10 +119,13 @@ public class TitleButtons : MonoBehaviour
     }
     public void restartGame()
     {
+
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     public void exitGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }
