@@ -553,8 +553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9572fdb6c9ff1f42aba6d6b8703e05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    highscores: []
 --- !u!1 &1052074490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8319124536199161626, guid: 88621b3c46347c945be11261cef2f0c6,
@@ -976,10 +974,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 6170327921330154601, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8380207356625507586, guid: 26f90f41a879bbc428d408b554bad414,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380207356625507587, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8380207356646602857, guid: 26f90f41a879bbc428d408b554bad414,
         type: 3}
@@ -1045,6 +1053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380207356646602863, guid: 26f90f41a879bbc428d408b554bad414,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26f90f41a879bbc428d408b554bad414, type: 3}
@@ -1598,6 +1611,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6491666076266408601, guid: 99e215340052b4c4987db94e38b1d1bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6491666076266408602, guid: 99e215340052b4c4987db94e38b1d1bb,
         type: 3}
       propertyPath: backSpawnPositions.Array.size
@@ -1753,6 +1771,17 @@ PrefabInstance:
       propertyPath: topSpawnPositions.Array.data[6]
       value: 
       objectReference: {fileID: 1271360427}
+    - target: {fileID: 6491666076266408602, guid: 99e215340052b4c4987db94e38b1d1bb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491666076266408602, guid: 99e215340052b4c4987db94e38b1d1bb,
+        type: 3}
+      propertyPath: testEnemy2
+      value: 
+      objectReference: {fileID: 4728646471930885902, guid: fd7348382558ec84785791526ea3fef4,
+        type: 3}
     - target: {fileID: 6491666076266408603, guid: 99e215340052b4c4987db94e38b1d1bb,
         type: 3}
       propertyPath: m_LocalPosition.x

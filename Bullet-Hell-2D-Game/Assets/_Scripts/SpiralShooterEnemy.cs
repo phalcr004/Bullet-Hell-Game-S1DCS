@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyHealth))]
 public class SpiralShooterEnemy : MonoBehaviour {
     // 
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject[] projectileSpawns;
-    private Transform spinnerTransform;
+    [SerializeField] GameObject spinner;
 
     // Speed of enemy and spin
-    private float speed = 1f;
-    private float spinSpeed;
+    private float speed = 3f;
+    [SerializeField] float spinSpeed = 15f;
 
     // Track enemy state and adjust "AI" accordingly
     private enum EnemyStates { Spawning, Shooting, Spinning }
@@ -27,8 +28,6 @@ public class SpiralShooterEnemy : MonoBehaviour {
     private float shootDelay = 0.25f;
 
     void Start() {
-        spinnerTransform = GameObject.Find("Spinner").GetComponent<Transform>();
-
         // Rotate enemy so sprite faces correct direction
         transform.Rotate(new Vector3(0f, 0f, 180f));
 
@@ -65,7 +64,7 @@ public class SpiralShooterEnemy : MonoBehaviour {
 
     private void ShootProjectiles() {
         for(int i = 0; i < projectileSpawns.Length; i++) {
-            Instantiate(projectile, projectileSpawns[i].transform.position, projectileSpawns[i].transform.rotation, spinnerTransform);
+            Instantiate(projectile, projectileSpawns[i].transform.position, projectileSpawns[i].transform.rotation, spinner.transform);
         }
         timer = Time.time + shootDelay;
         enemyState = EnemyStates.Spinning;
@@ -75,7 +74,8 @@ public class SpiralShooterEnemy : MonoBehaviour {
         if(Time.time > timer) {
             enemyState = EnemyStates.Shooting;
         }
-        spinnerTransform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
+        spinner.transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

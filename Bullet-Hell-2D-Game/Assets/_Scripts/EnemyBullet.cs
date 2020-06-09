@@ -28,5 +28,8 @@ public class EnemyBullet : MonoBehaviour {
 
         // Take a life from player
         PlayerController.playerLives -= 1;
+
+        // Remove the projectile
+        Destroy(gameObject);
     }
 }

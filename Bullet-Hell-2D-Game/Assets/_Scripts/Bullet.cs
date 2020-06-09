@@ -17,10 +17,8 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.CompareTag("Player")) {
-            return;
+        if(collision.gameObject.CompareTag("Enemy")) {
+            collision.gameObject.GetComponent<EnemyHealth>().DealDamage(bulletDamage);
         }
-
-        collision.gameObject.GetComponent<EnemyHealth>().DealDamage(bulletDamage);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static int playerLives;
+    public int inspectorPlayerLives;
 
     private float speed;
     private float fastSpeed =5.5f;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLives = 2;
+        playerLives = 999;
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         FireWeapon();
+        inspectorPlayerLives = playerLives;
     }
     private void MovePlayer()
     {
