@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyHealth))]
 public class SpiralShooterEnemy : MonoBehaviour {
-    // 
+    // GameObjects for spawning projectiles
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject[] projectileSpawns;
     [SerializeField] GameObject spinner;

@@ -30,3 +30,7 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 }
+
+public interface IEnemy {
+    public void 
+}
