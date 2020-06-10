@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         FireWeapon();
         //Pause Script
-        /*        if (Input.GetKeyDown(KeyCode.Escape && ))
+        if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (isNotPaused)
                 {
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
                     Time.timeScale = 0;
                     cameraAudio.UnPause();
                 }
-            }*/
+            }
         //Hud Display For Player Lives
         switch (playerLives)
         {
