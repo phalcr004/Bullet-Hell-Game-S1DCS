@@ -19,13 +19,13 @@ public class SpiralShooterEnemy : MonoBehaviour {
 
     // Stop player from destroying enemy before it begins spin
     public bool canTakeDamage;
-    private float invincibilityDuration = 2f;
+    private float invincibilityDuration = 2.5f;
 
     // Timer to keep track of state changes
     private float timer;
 
     // Delay between spinning and shooting states
-    private float shootDelay = 0.25f;
+    private float shootDelay = 0.5f;
 
     void Start() {
         // Rotate enemy so sprite faces correct direction

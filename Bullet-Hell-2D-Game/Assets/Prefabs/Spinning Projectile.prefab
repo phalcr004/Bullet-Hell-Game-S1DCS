@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1355500667150191174}
   - component: {fileID: 1674609740828061305}
   - component: {fileID: 7982753925053548290}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Spinning Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

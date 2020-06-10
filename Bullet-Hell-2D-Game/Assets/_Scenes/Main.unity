@@ -1391,26 +1391,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3790131502009216869, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170327921330154601, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380207356625507586, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380207356625507587, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8380207356646602857, guid: 26f90f41a879bbc428d408b554bad414,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1468,16 +1448,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
         type: 3}
-      propertyPath: delay
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: cameraAudio
-      value: 
-      objectReference: {fileID: 519420030}
-    - target: {fileID: 8380207356646602859, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
       propertyPath: extraLife1
       value: 
       objectReference: {fileID: 909674345}
@@ -1490,11 +1460,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380207356646602863, guid: 26f90f41a879bbc428d408b554bad414,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26f90f41a879bbc428d408b554bad414, type: 3}
@@ -2329,7 +2294,7 @@ PrefabInstance:
         type: 3}
       propertyPath: testEnemy2
       value: 
-      objectReference: {fileID: 4728646471930885902, guid: fd7348382558ec84785791526ea3fef4,
+      objectReference: {fileID: 8668592154171859680, guid: 4e63a755739a7814a969ce9ced4a287e,
         type: 3}
     - target: {fileID: 6491666076266408603, guid: 99e215340052b4c4987db94e38b1d1bb,
         type: 3}
