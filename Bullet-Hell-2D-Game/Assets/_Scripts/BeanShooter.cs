@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class BeanShooter : MonoBehaviour
 {
+    public float enemySpeed = 0.01f;
+    private float finalXPos;
     [SerializeField] float sinAmp = 0.25f;
     public int enemyAction;
     private float timer;
+
+    private float spawnBounds = 360f;
 
     [SerializeField] Vector3 movementVector;
     [SerializeField] float period = 2f;
     [Range(0, 1)] [SerializeField] float movementFactor;
     Vector3 startingPos;
+    public float timeInGame;
 
-    //300
+    public GameObject bean;
+    public GameObject spawnZone;
     // Start is called before the first frame update
     void Start()
     {
+        //randomly chooses where enemy's final x coord will be
+        finalXPos = Random.Range(0f, 7f);
+        //when enemy spawns it will begin by moving on screen
         enemyAction = 3;
-        startingPos = transform.position;
+        timeInGame = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float cycle = Time.time / period;
-
-        const float tau = Mathf.PI * 2f;
-        float rawSinWave = Mathf.Sin(cycle * tau);
-
-        movementFactor = rawSinWave / 2f + 0.5f;
-        Vector3 offset = movementFactor * movementVector;
-        transform.position = startingPos + offset;
-        if (Time.time > timer)
-        {
-            transform.Rotate(new Vector3(0, 0, 999));
-        }
+        Instantiate(bean, spawnZone.transform.position, Quaternion.Euler(0, 0, Random.Range(-spawnBounds, spawnBounds)));
+        //switch to decide on how enemy will act
         switch (enemyAction)
         {
             case 3:
@@ -48,21 +47,52 @@ public class BeanShooter : MonoBehaviour
                     MoveOffScreen();
                 break;
         }
+
     }
+    //enemy will move from spawn to randomly chosen x
     void MoveOnScreen()
     {
-        if (transform.position.x != Random.Range(-5, -10))
+        //If the enemy isn't at the randomly selected x keep moving
+        if (transform.position.x > finalXPos)
         {
-            transform.Translate(new Vector3(-5, 0, 0));
+            transform.Translate(Vector2.left * enemySpeed);
+        }
+        //once enemy reaches final x, set this position as starting position for sin wave
+        else
+        {
+            startingPos = transform.position;
+            enemyAction = 2;
+        }
+    }
+    void JackHill()
+    {
+        //sit and float
+        IdleFloat();
+        timeInGame += 1 * Time.deltaTime;
+        if(timeInGame > 10f)
+        {
+            enemyAction = 1;
         }
     }
     void MoveOffScreen()
     {
-
+        //go off screen and destroy self once off
+        transform.Translate(Vector2.up * enemySpeed);
+        if(transform.position.y > 6.5f)
+        {
+            Destroy(gameObject);
+        }
     }
-    void JackHill()
+    private void IdleFloat()
     {
+        float cycle = Time.time / period;
 
+        const float tau = Mathf.PI * 2f;
+        float rawSinWave = Mathf.Sin(cycle * tau);
+
+        movementFactor = rawSinWave / 2f + 0.5f;
+        Vector3 offset = movementFactor * movementVector;
+        transform.position = startingPos + offset;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -71,6 +101,10 @@ public class BeanShooter : MonoBehaviour
         {
             PlayerController.playerLives -= 1;
         }
+    }
+    public void ActionOnDeath()
+    {
+        Instantiate(bean, spawnZone.transform.position, Quaternion.AngleAxis(Random.Range(-spawnBounds, spawnBounds), Vector3.up));
     }
 }
 

@@ -26,7 +26,6 @@ public class Bullet : MonoBehaviour
         catch (NullReferenceException e)
         {
             Debug.LogWarning("Missing enemy health script on enemy: " + collision.gameObject.name);
-        }
-        Destroy(gameObject);
+        }  
     }
 }
