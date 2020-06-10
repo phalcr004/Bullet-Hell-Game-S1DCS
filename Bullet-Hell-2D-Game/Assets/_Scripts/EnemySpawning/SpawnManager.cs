@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour {
 
     // All prefabs for enemies
     [SerializeField] GameObject testEnemy1;
+    [SerializeField] GameObject testEnemy2;
 
     // Three spawn zones (top, bottom, right side)
     [SerializeField] GameObject[] topSpawnPositions;
@@ -19,6 +20,7 @@ public class SpawnManager : MonoBehaviour {
         commands.Enqueue(new SpawnWaveStaggered(backSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 3f, 0.5f));
         commands.Enqueue(new SpawnWaveStaggered(topSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 5f, 0.5f));
         commands.Enqueue(new SpawnWaveStaggered(bottomSpawnPositions, testEnemy1, new int[,] { { 0, 0, 0, 1, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 1, 0 }, { 1, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 1 } }, 7f, 0.5f));
+        commands.Enqueue(new SpawnWaveStaggered(backSpawnPositions, testEnemy2, new int[,] { { 0, 0, 0, 1, 0, 0, 0 } }, 9f, 0f));
     }
 
     void Update() {

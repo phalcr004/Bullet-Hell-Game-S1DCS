@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour {
 
     // Boundaries
     private float xBoundary = 15f;
-    private float yBoundary = 4.5f;
+    private float yBoundary = 5.5f;
 
     void Update() {
         // Move "up" relative to bullet
@@ -21,12 +21,10 @@ public class EnemyBullet : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        // Return if hit anything but a player
-        if(!collision.gameObject.CompareTag("Player")) {
-            return;
-        }
-
         // Take a life from player
         PlayerController.playerLives -= 1;
+
+        // Remove the projectile
+        Destroy(gameObject);
     }
 }

@@ -11,18 +11,14 @@ public class EnemyHealth : MonoBehaviour {
     public void DealDamage(int damageDealt) {
         try {
             AcceleratorEnemy enemyScript = gameObject.GetComponent<AcceleratorEnemy>();
-            this.canTakeDamage = enemyScript.canTakeDamage;
+            canTakeDamage = enemyScript.canTakeDamage;
         }
-        catch(NullReferenceException e) {
-
-        }
+        catch(NullReferenceException e) {}
         try {
             SpiralShooterEnemy enemyScript = gameObject.GetComponent<SpiralShooterEnemy>();
-            this.canTakeDamage = enemyScript.canTakeDamage;
+            canTakeDamage = enemyScript.canTakeDamage;
         }
-        catch(NullReferenceException e) {
-
-        }
+        catch(NullReferenceException e) {}
 
         if(!canTakeDamage) {
             return;
