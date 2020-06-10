@@ -18,9 +18,16 @@ public class EnemyHealth : MonoBehaviour {
             SpiralShooterEnemy enemyScript = gameObject.GetComponent<SpiralShooterEnemy>();
             canTakeDamage = enemyScript.canTakeDamage;
         }
+
         catch(NullReferenceException e) {}
 
-        if(!canTakeDamage) {
+        try
+        {
+            BeanShooter enemyScript = gameObject.GetComponent<BeanShooter>();
+            canTakeDamage = true;
+        }
+        catch (NullReferenceException e) { }
+        if (!canTakeDamage) {
             return;
         }
 
@@ -28,6 +35,7 @@ public class EnemyHealth : MonoBehaviour {
         if(health < 1) {
             Destroy(gameObject);
         }
+
     }
 }
 

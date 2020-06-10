@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,9 +17,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.CompareTag("Enemy")) {
+    void OnTriggerEnter2D(Collider2D collision) 
+    {
+        try
+        {
             collision.gameObject.GetComponent<EnemyHealth>().DealDamage(bulletDamage);
         }
+        catch (NullReferenceException e)
+        {
+            Debug.LogWarning("Missing enemy health script on enemy: " + collision.gameObject.name);
+        }  
     }
 }
