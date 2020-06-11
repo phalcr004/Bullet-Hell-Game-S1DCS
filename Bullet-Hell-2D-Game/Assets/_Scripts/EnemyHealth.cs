@@ -6,39 +6,28 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
     // Health of enemy
     [SerializeField] int health;
-    public bool canTakeDamage;
 
     public void DealDamage(int damageDealt) {
-        try {
-            AcceleratorEnemy enemyScript = gameObject.GetComponent<AcceleratorEnemy>();
-            canTakeDamage = enemyScript.canTakeDamage;
-        }
-        catch(NullReferenceException e) {}
-        try {
-            SpiralShooterEnemy enemyScript = gameObject.GetComponent<SpiralShooterEnemy>();
-            canTakeDamage = enemyScript.canTakeDamage;
-        }
+        // Get the script on the enemy with this interface
+        IEnemy enemyScript = gameObject.GetComponent<IEnemy>();
 
-        catch(NullReferenceException e) {}
-
-        try
-        {
-            BeanShooter enemyScript = gameObject.GetComponent<BeanShooter>();
-            canTakeDamage = true;
-        }
-        catch (NullReferenceException e) { }
-        if (!canTakeDamage) {
+        // If enemy cant take damage, return
+        if(!enemyScript.CanTakeDamage()) {
             return;
         }
 
+        // Deal damage to enemy
         health -= damageDealt;
-        if(health < 1) {
-            Destroy(gameObject);
-        }
 
+        // If enemy's health is less than 1, perform any actions on death
+        if(health < 1) {
+            enemyScript.ActionOnDeath();
+        }
     }
 }
 
+// Create interface to ensure all enemies have these methods
 public interface IEnemy {
-    public void 
+    bool CanTakeDamage();
+    void ActionOnDeath();
 }

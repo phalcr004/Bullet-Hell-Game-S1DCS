@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeanShooter : MonoBehaviour
+public class BeanShooter : MonoBehaviour, IEnemy
 {
     public float enemySpeed = 0.01f;
     private float finalXPos;
@@ -102,6 +102,11 @@ public class BeanShooter : MonoBehaviour
             PlayerController.playerLives -= 1;
         }
     }
+    public bool CanTakeDamage()
+    {
+        return true;
+    }
+
     public void ActionOnDeath()
     {
         Instantiate(bean, spawnZone.transform.position, Quaternion.AngleAxis(Random.Range(-spawnBounds, spawnBounds), Vector3.up));

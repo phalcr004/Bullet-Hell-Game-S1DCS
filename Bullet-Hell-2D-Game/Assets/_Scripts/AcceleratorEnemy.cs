@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AcceleratorEnemy : MonoBehaviour {
+[RequireComponent(typeof(EnemyHealth))]
+public class AcceleratorEnemy : MonoBehaviour, IEnemy {
     // Acceleration and initial speed
     private float speed = 1f;
     private float acceleration = 15f;
-
-    // boss 2000
-    // spinning 200
-    // fast 50
-
-
 
     // Track enemy state and adjust "AI" accordingly
     private enum EnemyStates { Spawning, Targetting, Charging }
@@ -134,5 +129,13 @@ public class AcceleratorEnemy : MonoBehaviour {
             PlayerController.playerLives -= 1;
             Destroy(gameObject);
         }
+    }
+
+    public bool CanTakeDamage() {
+        return canTakeDamage;
+    }
+
+    public void ActionOnDeath() {
+        Destroy(gameObject);
     }
 }

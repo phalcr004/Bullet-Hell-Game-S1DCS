@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyHealth))]
-public class SpiralShooterEnemy : MonoBehaviour {
+public class SpiralShooterEnemy : MonoBehaviour, IEnemy {
     // GameObjects for spawning projectiles
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject[] projectileSpawns;
@@ -38,6 +38,7 @@ public class SpiralShooterEnemy : MonoBehaviour {
     }
 
     void Update() {
+        // Run code every frame based on state of enemy
         switch(enemyState) {
             case EnemyStates.Spawning:
                 MoveOnSpawn();
@@ -51,9 +52,9 @@ public class SpiralShooterEnemy : MonoBehaviour {
         }
     }
 
-    private void MoveOnSpawn() {
-        // If the invincibility should end, change state and begin "AI"
+    private void MoveOnSpawn() { 
         if (Time.time > timer) {
+            // Change state and end invincibility period
             enemyState = EnemyStates.Shooting;
             canTakeDamage = true;
         }
@@ -63,29 +64,40 @@ public class SpiralShooterEnemy : MonoBehaviour {
     }
 
     private void ShootProjectiles() {
+        // Spawn a bullet in each spawn zone attached to the enemy
         for(int i = 0; i < projectileSpawns.Length; i++) {
             Instantiate(projectile, projectileSpawns[i].transform.position, projectileSpawns[i].transform.rotation, spinner.transform);
         }
+
+        // Set up timer for next shot and change state
         timer = Time.time + shootDelay;
         enemyState = EnemyStates.Spinning;
     }
 
     private void SpinProjectiles() {
         if(Time.time > timer) {
+            // Change state to shooting if timer is over
             enemyState = EnemyStates.Shooting;
         }
+        // Rotate the enemy and the "spinner" to create the spiral effect
         transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
         spinner.transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if(!canTakeDamage) {
-            return;
-        }
-
         // If hit player, remove a life
         if (collision.gameObject.CompareTag("Player")) {
             PlayerController.playerLives -= 1;
         }
+    }
+
+    // Return whether the enemy can take damage
+    public bool CanTakeDamage() {
+        return canTakeDamage;
+    }
+
+    // Destroy on death
+    public void ActionOnDeath() {
+        Destroy(gameObject);
     }
 }
