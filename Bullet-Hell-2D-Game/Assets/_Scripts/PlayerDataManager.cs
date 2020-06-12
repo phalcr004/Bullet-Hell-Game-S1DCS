@@ -9,6 +9,7 @@ public class PlayerDataManager : MonoBehaviour {
 
     public static PlayerData playerData;
     void Start() {
+        // Read in the json file
         path = Application.streamingAssetsPath + "/player-data.JSON";
         jsonString = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerData>(jsonString);
@@ -21,11 +22,12 @@ public class PlayerDataManager : MonoBehaviour {
     public void UpdateHighScores(int newScore) {
         int previousHighscore = newScore;
 
-        foreach(Highscores highscore in playerData.highscores) {
-            if(previousHighscore > highscore.score) { 
+        foreach(int highscore in playerData.highscores) {
+            // Replace all scores in file in descending order
+            if(previousHighscore > highscore) { 
                 newScore = previousHighscore;
-                previousHighscore = highscore.score;
-                highscore.score = newScore;
+                previousHighscore = highscore;
+                playerData.highscores[highscore] = newScore;
             }
         }
     } 
@@ -34,10 +36,5 @@ public class PlayerDataManager : MonoBehaviour {
 
 [System.Serializable]
 public class PlayerData {
-    public Highscores[] highscores;
-}
-
-[System.Serializable]
-public class Highscores {
-    public int score;
+    public int[] highscores;
 }

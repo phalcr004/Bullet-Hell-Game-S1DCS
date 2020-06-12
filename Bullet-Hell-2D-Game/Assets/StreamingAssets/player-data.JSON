@@ -1,35 +1,14 @@
 {   
-"highscores":
-[
-{
-"score":0      
-},
-{
-"score":0      
-},
-{
-"score":0      
-},
-{
-"score":0   
-},
-{
-"score":0     
-},
-{
-"score":0      
-},
-{
-"score":0     
-},
-{
-"score":0
-},
-{
-"score":0   
-},
-{
-"score":0      
-}
-]
+    "highsores":[
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
 }
