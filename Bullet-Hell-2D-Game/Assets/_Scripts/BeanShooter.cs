@@ -45,7 +45,14 @@ public class BeanShooter : MonoBehaviour, IEnemy
                     MoveOffScreen();
                 break;
         }
-
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If hit player, remove a life
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController.playerLives -= 1;
+        }
     }
     //enemy will move from spawn to randomly chosen x
     void MoveOnScreen()
@@ -93,14 +100,7 @@ public class BeanShooter : MonoBehaviour, IEnemy
         Vector3 offset = movementFactor * movementVector;
         transform.position = startingPos + offset;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // If hit player, remove a life
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerController.playerLives -= 1;
-        }
-    }
+
     public bool CanTakeDamage()
     {
         return true;
@@ -108,6 +108,7 @@ public class BeanShooter : MonoBehaviour, IEnemy
     public void ActionOnDeath()
     {
         StartCoroutine(FireWeaponDelay());
+        Destroy(gameObject);
     }
     public IEnumerator FireWeaponDelay()
     {

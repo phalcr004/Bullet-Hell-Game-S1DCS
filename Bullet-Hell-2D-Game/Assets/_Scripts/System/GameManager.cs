@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {  //when game starts set these
+        ChooseMusic();
         Debug.LogError(playerDataManager.playerData);
         highScoreText.text = "High Score" + playerDataManager.playerData.highscores[0];
         isBossActive = false;
-        ChooseMusic();
         isGameActive = true;
         //Turn audio on if not muted
         if (TitleButtons.gameAudio == false)
@@ -68,8 +68,9 @@ public class GameManager : MonoBehaviour
     public void ChooseMusic()
     {
         int musicChoice = Random.Range(0, music.Length);
-        cameraAudio.clip = music[musicChoice]; // here
+        cameraAudio.clip = music[musicChoice]; 
         cameraAudio.Play();
+        
     }
     public void ActivateBoss()
     {
