@@ -10,7 +10,6 @@ public class BeanShooter : MonoBehaviour, IEnemy
     public int enemyAction;
     private float timer;
 
-    private float spawnBounds = 360f;
 
     [SerializeField] Vector3 movementVector;
     [SerializeField] float period = 2f;
@@ -24,7 +23,7 @@ public class BeanShooter : MonoBehaviour, IEnemy
     void Start()
     {
         //randomly chooses where enemy's final x coord will be
-        finalXPos = Random.Range(0f, 7f);
+        finalXPos = Random.Range(-3f, 7f);
         //when enemy spawns it will begin by moving on screen
         enemyAction = 3;
         timeInGame = 0f;
@@ -33,7 +32,6 @@ public class BeanShooter : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-        Instantiate(bean, spawnZone.transform.position, Quaternion.Euler(0, 0, Random.Range(-spawnBounds, spawnBounds)));
         //switch to decide on how enemy will act
         switch (enemyAction)
         {
@@ -69,7 +67,8 @@ public class BeanShooter : MonoBehaviour, IEnemy
         //sit and float
         IdleFloat();
         timeInGame += 1 * Time.deltaTime;
-        if(timeInGame > 10f)
+        StartCoroutine(FireWeaponDelay());
+        if (timeInGame > 10f)
         {
             enemyAction = 1;
         }
@@ -106,10 +105,19 @@ public class BeanShooter : MonoBehaviour, IEnemy
     {
         return true;
     }
-
     public void ActionOnDeath()
     {
-        Instantiate(bean, spawnZone.transform.position, Quaternion.AngleAxis(Random.Range(-spawnBounds, spawnBounds), Vector3.up));
+        StartCoroutine(FireWeaponDelay());
     }
+    public IEnumerator FireWeaponDelay()
+    {
+        yield return new WaitForSeconds(1);
+        FireWeapon();
+    }
+    public void FireWeapon()
+    {
+      Instantiate(bean, spawnZone.transform.position, spawnZone.transform.rotation);
+    }
+
 }
 

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2760694782714811453}
   - component: {fileID: 1853333038805478361}
   - component: {fileID: 7079570772332480668}
-  m_Layer: 0
-  m_Name: Bouncy Bullet
+  - component: {fileID: 4148111634878763162}
+  m_Layer: 8
+  m_Name: Bean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -129,6 +130,18 @@ ConstantForce2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2760694782714811452}
   m_Enabled: 1
-  m_Force: {x: 0, y: 5}
+  m_Force: {x: 0, y: 50}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!114 &4148111634878763162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760694782714811452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caea978b432077f4d82d7b4baa5cea25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
