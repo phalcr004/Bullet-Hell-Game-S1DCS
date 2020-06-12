@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text scoreText;
+    public Text highScoreText;
     public AudioClip[] music;
     private AudioClip selectedMusic;
     public AudioSource cameraAudio;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   //when game starts set these
+        highScoreText.text = "High Score" + PlayerDataManager.playerData.highscores[0].score;
         isBossActive = false;
         ChooseMusic();
         isGameActive = true;
