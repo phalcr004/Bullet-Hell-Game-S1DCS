@@ -7,7 +7,7 @@ public class PlayerDataManager : MonoBehaviour {
     private string path;
     private string jsonString;
 
-    public static PlayerData playerData;
+    public PlayerData playerData;
     void Start() {
         // Read in the json file
         path = Application.streamingAssetsPath + "/player-data.JSON";
@@ -31,10 +31,9 @@ public class PlayerDataManager : MonoBehaviour {
             }
         }
     } 
-
 }
 
 [System.Serializable]
 public class PlayerData {
-    public int[] highscores;
+    public int[] highscores = new int[10];
 }

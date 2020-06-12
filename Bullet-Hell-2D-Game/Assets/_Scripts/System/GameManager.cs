@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public AudioSource cameraAudio;
     [SerializeField] AudioListener cameraVolume;
     public AudioClip bossMusic;
-
+    public PlayerDataManager playerDataManager;
     public bool isGameActive;
     public bool activateBoss;
     public bool isBossActive;
@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   //when game starts set these
-        highScoreText.text = "High Score" + PlayerDataManager.playerData.highscores[0].score;
+    {  //when game starts set these
+        Debug.LogError(playerDataManager.playerData);
+        highScoreText.text = "High Score" + playerDataManager.playerData.highscores[0];
         isBossActive = false;
         ChooseMusic();
         isGameActive = true;
