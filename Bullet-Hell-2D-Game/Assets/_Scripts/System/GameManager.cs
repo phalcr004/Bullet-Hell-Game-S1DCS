@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {  //when game starts set these
         ChooseMusic();
-        Debug.LogError(playerDataManager.playerData);
-        highScoreText.text = "High Score" + playerDataManager.playerData.highscores[0];
+        playerDataManager.LoadJsonFile();
+        highScoreText.text = "" + playerDataManager.playerData.highscores[0];
         isBossActive = false;
         isGameActive = true;
         //Turn audio on if not muted

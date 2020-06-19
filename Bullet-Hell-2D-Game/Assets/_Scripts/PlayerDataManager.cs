@@ -8,11 +8,15 @@ public class PlayerDataManager : MonoBehaviour {
     private string jsonString;
 
     public PlayerData playerData;
-    void Start() {
+
+    public void LoadJsonFile() {
         // Read in the json file
         path = Application.streamingAssetsPath + "/player-data.JSON";
         jsonString = File.ReadAllText(path);
         playerData = JsonUtility.FromJson<PlayerData>(jsonString);
+    }
+    void Start() {
+
     }
 
     public void OverwriteJsonFile() {
@@ -35,5 +39,5 @@ public class PlayerDataManager : MonoBehaviour {
 
 [System.Serializable]
 public class PlayerData {
-    public int[] highscores = new int[10];
+    public int[] highscores;
 }
